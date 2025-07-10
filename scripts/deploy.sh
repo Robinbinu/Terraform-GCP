@@ -12,6 +12,15 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+# Get script directory and project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+TERRAFORM_DIR="$PROJECT_ROOT/terraform"
+LOGS_DIR="$PROJECT_ROOT/logs"
+
+# Ensure logs directory exists
+mkdir -p "$LOGS_DIR"
+
 # Function to print colored output
 print_info() {
     echo -e "${BLUE}[INFO]${NC} $1"
@@ -33,17 +42,21 @@ print_error() {
 prompt_choices() {
     print_info "=== Terraform Deployment Configuration ==="
     
+    # Change to terraform directory
+    cd "$TERRAFORM_DIR"
+    
     # Check if terraform.tfvars exists
     if [ ! -f "terraform.tfvars" ]; then
         print_warning "terraform.tfvars not found. Creating from example..."
         cp terraform.tfvars.example terraform.tfvars
         print_info "Please edit terraform.tfvars with your configuration before continuing."
+        print_info "Configuration file location: $TERRAFORM_DIR/terraform.tfvars"
         read -p "Press Enter after editing terraform.tfvars..."
     fi
     
     # Ask for deployment confirmation
     echo ""
-    print_info "Current configuration will be read from terraform.tfvars"
+    print_info "Current configuration will be read from $TERRAFORM_DIR/terraform.tfvars"
     print_info "Available machine types: f1-micro, e2-micro, e2-small, e2-medium, n1-standard-1, n1-standard-2, n2-standard-2"
     print_info "Available OS choices: ubuntu, debian, centos, rhel"
     print_info "Available regions: us-central1, us-east1, us-west1, us-west2, europe-west1, europe-west2, asia-southeast1"
@@ -64,35 +77,39 @@ prompt_choices() {
 run_terraform() {
     local command=$1
     local description=$2
+    local log_file="$LOGS_DIR/deployment.log"
     
     print_info "=== $description ==="
     
+    # Change to terraform directory
+    cd "$TERRAFORM_DIR"
+    
     # Enable Terraform verbose logging
     export TF_LOG=INFO
-    export TF_LOG_PATH="terraform-$(date +%Y%m%d-%H%M%S).log"
+    export TF_LOG_PATH="$LOGS_DIR/terraform-$(date +%Y%m%d-%H%M%S).log"
     
     print_info "Terraform logs will be saved to: $TF_LOG_PATH"
     
     case $command in
         "init")
             print_info "Initializing Terraform..."
-            terraform init -no-color | tee -a deployment.log
+            terraform init -no-color | tee -a "$log_file"
             ;;
         "plan")
             print_info "Creating Terraform plan..."
-            terraform plan -var-file="terraform.tfvars" -no-color -out=tfplan | tee -a deployment.log
+            terraform plan -var-file="terraform.tfvars" -no-color -out=tfplan | tee -a "$log_file"
             ;;
         "apply")
             print_info "Applying Terraform configuration..."
-            terraform apply -no-color tfplan | tee -a deployment.log
+            terraform apply -no-color tfplan | tee -a "$log_file"
             ;;
         "output")
             print_info "Displaying Terraform outputs..."
-            terraform output -no-color | tee -a deployment.log
+            terraform output -no-color | tee -a "$log_file"
             ;;
         "destroy")
             print_info "Destroying Terraform resources..."
-            terraform destroy -var-file="terraform.tfvars" -no-color | tee -a deployment.log
+            terraform destroy -var-file="terraform.tfvars" -no-color | tee -a "$log_file"
             ;;
     esac
     

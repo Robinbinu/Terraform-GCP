@@ -12,6 +12,17 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
+# Get script directory and project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+PYTHON_DIR="$PROJECT_ROOT/python"
+LOGS_DIR="$PROJECT_ROOT/logs"
+
+# File paths
+VM_SCRIPT="$PYTHON_DIR/vm_manager.py"
+CONFIG_FILE="$PYTHON_DIR/vm_config.json"
+REQUIREMENTS_FILE="$PYTHON_DIR/requirements.txt"
+
 print_info() {
     echo -e "${BLUE}[INFO]${NC} $1"
 }
@@ -126,55 +137,64 @@ case "${1:-help}" in
     "config")
         check_python
         check_dependencies
-        python3 vm_manager.py config --interactive
+        cd "$PYTHON_DIR"
+        python3 "$VM_SCRIPT" config --interactive
         ;;
     "create")
         check_python
         check_dependencies
         check_auth
-        python3 vm_manager.py create
+        cd "$PYTHON_DIR"
+        python3 "$VM_SCRIPT" create
         ;;
     "start")
         check_python
         check_dependencies
         check_auth
-        python3 vm_manager.py start
+        cd "$PYTHON_DIR"
+        python3 "$VM_SCRIPT" start
         ;;
     "stop")
         check_python
         check_dependencies
         check_auth
-        python3 vm_manager.py stop
+        cd "$PYTHON_DIR"
+        python3 "$VM_SCRIPT" stop
         ;;
     "restart")
         check_python
         check_dependencies
         check_auth
-        python3 vm_manager.py restart
+        cd "$PYTHON_DIR"
+        python3 "$VM_SCRIPT" restart
         ;;
     "delete")
         check_python
         check_dependencies
         check_auth
-        python3 vm_manager.py delete
+        cd "$PYTHON_DIR"
+        python3 "$VM_SCRIPT" delete
         ;;
     "status")
         check_python
         check_dependencies
         check_auth
-        python3 vm_manager.py status
+        cd "$PYTHON_DIR"
+        python3 "$VM_SCRIPT" status
         ;;
     "info")
         check_python
         check_dependencies
         check_auth
-        python3 vm_manager.py info
+        cd "$PYTHON_DIR"
+        python3 "$VM_SCRIPT" info
         ;;
     "summary")
         check_python
         check_dependencies
         check_auth
-        python3 vm_manager.py summary
+        cd "$PYTHON_DIR"
+        python3 "$VM_SCRIPT" summary
         ;;
     "help"|*)
         show_help

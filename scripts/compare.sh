@@ -5,6 +5,12 @@
 
 set -e
 
+# Get script directory and project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+TERRAFORM_DIR="$PROJECT_ROOT/terraform"
+PYTHON_DIR="$PROJECT_ROOT/python"
+
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -40,7 +46,7 @@ echo ""
 print_section "1. TERRAFORM APPROACH"
 print_terraform "Infrastructure as Code with HCL"
 echo "Files:"
-echo "  • main.tf - Terraform configuration"
+echo "  • terraform/main.tf - Terraform configuration"
 echo "  • terraform.tfvars - Variable definitions"
 echo "  • deploy.sh - Deployment script"
 echo "  • manage.sh - VM lifecycle management"
@@ -56,7 +62,7 @@ echo ""
 print_section "2. PYTHON APPROACH"
 print_python "Direct API integration with Google Cloud SDK"
 echo "Files:"
-echo "  • vm_manager.py - Python VM management class"
+echo "  • python/vm_manager.py - Python VM management class"
 echo "  • python_vm.sh - Convenient wrapper script"
 echo "  • vm_config.json - Configuration file"
 echo "  • requirements.txt - Python dependencies"

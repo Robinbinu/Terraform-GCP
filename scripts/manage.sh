@@ -12,6 +12,15 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
+# Get script directory and project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+TERRAFORM_DIR="$PROJECT_ROOT/terraform"
+LOGS_DIR="$PROJECT_ROOT/logs"
+
+# Ensure logs directory exists
+mkdir -p "$LOGS_DIR"
+
 print_info() {
     echo -e "${BLUE}[INFO]${NC} $1"
 }
@@ -32,8 +41,8 @@ print_error() {
 get_config_value() {
     local key=$1
     local default_value=$2
-    if [ -f "terraform.tfvars" ]; then
-        grep -E "^${key}" terraform.tfvars | cut -d'"' -f2 2>/dev/null || echo "$default_value"
+    if [ -f "$TERRAFORM_DIR/terraform.tfvars" ]; then
+        grep -E "^${key}" "$TERRAFORM_DIR/terraform.tfvars" | cut -d'"' -f2 2>/dev/null || echo "$default_value"
     else
         echo "$default_value"
     fi
@@ -41,7 +50,7 @@ get_config_value() {
 
 # Get VM details
 get_vm_info() {
-    if [ ! -f "terraform.tfstate" ]; then
+    if [ ! -f "$TERRAFORM_DIR/terraform.tfstate" ]; then
         print_error "Terraform state file not found. Please deploy first with './deploy.sh deploy'"
         exit 1
     fi
@@ -129,7 +138,7 @@ start_vm() {
         
         # Update Terraform state to reflect the change
         print_info "Updating Terraform configuration..."
-        sed -i.bak 's/instance_state.*=.*"TERMINATED"/instance_state = "RUNNING"/' terraform.tfvars 2>/dev/null || true
+        sed -i.bak 's/instance_state.*=.*"TERMINATED"/instance_state = "RUNNING"/' "$TERRAFORM_DIR/terraform.tfvars" 2>/dev/null || true
         
         # Show access information
         sleep 5  # Wait for instance to fully start
@@ -171,7 +180,7 @@ stop_vm() {
         
         # Update Terraform state to reflect the change
         print_info "Updating Terraform configuration..."
-        sed -i.bak 's/instance_state.*=.*"RUNNING"/instance_state = "TERMINATED"/' terraform.tfvars 2>/dev/null || true
+        sed -i.bak 's/instance_state.*=.*"RUNNING"/instance_state = "TERMINATED"/' "$TERRAFORM_DIR/terraform.tfvars" 2>/dev/null || true
     else
         print_error "Failed to stop VM"
         exit 1
@@ -236,6 +245,8 @@ show_access_info() {
 # Apply Terraform changes to sync state
 sync_terraform() {
     print_info "Syncing Terraform state with actual VM state..."
+    
+    cd "$TERRAFORM_DIR"
     
     # Run terraform plan to see changes
     terraform plan -var-file="terraform.tfvars" -out=tfplan
