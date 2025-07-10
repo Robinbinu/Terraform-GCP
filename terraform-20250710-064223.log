@@ -1,0 +1,58 @@
+2025-07-10T06:42:23.278+0530 [INFO]  Terraform version: 1.5.7
+2025-07-10T06:42:23.279+0530 [INFO]  Go runtime version: go1.23.1
+2025-07-10T06:42:23.279+0530 [INFO]  CLI args: []string{"terraform", "init", "-no-color"}
+2025-07-10T06:42:23.279+0530 [INFO]  CLI command args: []string{"init", "-no-color"}
+2025-07-10T06:42:23.554+0530 [INFO]  Terraform version: 1.5.7
+2025-07-10T06:42:23.554+0530 [INFO]  Go runtime version: go1.23.1
+2025-07-10T06:42:23.554+0530 [INFO]  CLI args: []string{"terraform", "plan", "-var-file=terraform.tfvars", "-no-color", "-out=tfplan"}
+2025-07-10T06:42:23.554+0530 [INFO]  CLI command args: []string{"plan", "-var-file=terraform.tfvars", "-no-color", "-out=tfplan"}
+2025-07-10T06:42:23.607+0530 [INFO]  backend/local: starting Plan operation
+2025-07-10T06:42:23.609+0530 [INFO]  provider: configuring client automatic mTLS
+2025-07-10T06:42:23.651+0530 [INFO]  provider.terraform-provider-google_v6.8.0_x5: configuring server automatic mTLS: timestamp=2025-07-10T06:42:23.651+0530
+2025-07-10T06:42:23.728+0530 [INFO]  provider: configuring client automatic mTLS
+2025-07-10T06:42:23.754+0530 [INFO]  provider.terraform-provider-google_v6.8.0_x5: configuring server automatic mTLS: timestamp=2025-07-10T06:42:23.754+0530
+2025-07-10T06:42:23.841+0530 [INFO]  backend/local: plan calling Plan
+2025-07-10T06:42:23.842+0530 [INFO]  provider: configuring client automatic mTLS
+2025-07-10T06:42:23.868+0530 [INFO]  provider.terraform-provider-google_v6.8.0_x5: configuring server automatic mTLS: timestamp=2025-07-10T06:42:23.868+0530
+2025-07-10T06:42:23.955+0530 [INFO]  provider.terraform-provider-google_v6.8.0_x5: Authenticating using DefaultClient...: @module=google tf_mux_provider=*proto5server.Server tf_req_id=0ed6799d-1fa1-32b6-fd6d-246d4d1d4099 @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1885 tf_provider_addr=registry.terraform.io/hashicorp/google tf_rpc=ConfigureProvider timestamp=2025-07-10T06:42:23.955+0530
+2025-07-10T06:42:23.955+0530 [INFO]  provider.terraform-provider-google_v6.8.0_x5:   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]: @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1886 tf_provider_addr=registry.terraform.io/hashicorp/google tf_req_id=0ed6799d-1fa1-32b6-fd6d-246d4d1d4099 tf_rpc=ConfigureProvider @module=google tf_mux_provider=*proto5server.Server timestamp=2025-07-10T06:42:23.955+0530
+2025-07-10T06:42:23.955+0530 [INFO]  provider.terraform-provider-google_v6.8.0_x5: Authenticating using DefaultClient...: tf_provider_addr=registry.terraform.io/hashicorp/google tf_rpc=ConfigureProvider @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1885 @module=google tf_mux_provider=*proto5server.Server tf_req_id=0ed6799d-1fa1-32b6-fd6d-246d4d1d4099 timestamp=2025-07-10T06:42:23.955+0530
+2025-07-10T06:42:23.955+0530 [INFO]  provider.terraform-provider-google_v6.8.0_x5:   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]: @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1886 tf_rpc=ConfigureProvider tf_provider_addr=registry.terraform.io/hashicorp/google tf_req_id=0ed6799d-1fa1-32b6-fd6d-246d4d1d4099 @module=google tf_mux_provider=*proto5server.Server timestamp=2025-07-10T06:42:23.955+0530
+2025-07-10T06:42:24.214+0530 [INFO]  provider.terraform-provider-google_v6.8.0_x5: Terraform is using this identity: zodsenpaix@gmail.com: @module=google tf_req_id=0ed6799d-1fa1-32b6-fd6d-246d4d1d4099 @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1755 tf_mux_provider=*proto5server.Server tf_provider_addr=registry.terraform.io/hashicorp/google tf_rpc=ConfigureProvider timestamp=2025-07-10T06:42:24.214+0530
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.vm_name"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "local.startup_scripts"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.os_choice"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "local.startup_scripts"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.machine_type"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.instance_state"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "local.vm_tags"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "local.computed_zone"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.os_choice"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.instance_state"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.preemptible"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.enable_monitoring"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.disk_size"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "local.os_images"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.os_choice"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.preemptible"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.preemptible"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.auto_restart"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.preemptible"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.preemptible"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.enable_http_server"
+2025-07-10T06:42:24.354+0530 [INFO]  ReferenceTransformer: reference not found: "var.vm_name"
+2025-07-10T06:42:24.357+0530 [WARN]  Provider "registry.terraform.io/hashicorp/google" produced an invalid plan for google_compute_firewall.allow_http[0], but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .priority: planned value cty.NumberIntVal(1000) for a non-computed attribute
+2025-07-10T06:42:24.358+0530 [ERROR] vertex "output.firewall_rules" error: Inconsistent conditional result types
+2025-07-10T06:42:24.358+0530 [ERROR] vertex "output.firewall_rules (expand)" error: Inconsistent conditional result types
+2025-07-10T06:42:24.362+0530 [WARN]  Provider "registry.terraform.io/hashicorp/google" produced an invalid plan for google_compute_instance.default, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .deletion_protection: planned value cty.False for a non-computed attribute
+      - .can_ip_forward: planned value cty.False for a non-computed attribute
+      - .guest_accelerator: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .boot_disk[0].mode: planned value cty.StringVal("READ_WRITE") for a non-computed attribute
+      - .confidential_instance_config: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+      - .reservation_affinity: attribute representing nested block must not be unknown itself; set nested attribute values to unknown instead
+2025-07-10T06:42:24.365+0530 [INFO]  backend/local: plan operation completed
+2025-07-10T06:42:24.365+0530 [INFO]  backend/local: writing plan output to: tfplan

@@ -1,0 +1,23 @@
+{
+  "project_id": "intellicash-465015",
+  "region": "us-central1",
+  "zone": "",
+  "vm_name": "test",
+  "machine_type": "e2-micro",
+  "os_choice": "ubuntu",
+  "disk_size": 20,
+  "enable_http_server": false,
+  "enable_monitoring": false,
+  "instance_state": "TERMINATED",
+  "auto_start": true,
+  "auto_restart": true,
+  "preemptible": false,
+  "tags": [
+    "python-managed",
+    "http-server"
+  ],
+  "labels": {
+    "created-by": "python-script",
+    "environment": "development"
+  }
+}

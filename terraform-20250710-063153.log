@@ -1,0 +1,8 @@
+2025-07-10T06:31:53.071+0530 [INFO]  Terraform version: 1.5.7
+2025-07-10T06:31:53.072+0530 [INFO]  Go runtime version: go1.23.1
+2025-07-10T06:31:53.072+0530 [INFO]  CLI args: []string{"terraform", "apply", "-no-color", "tfplan"}
+2025-07-10T06:31:53.072+0530 [INFO]  CLI command args: []string{"apply", "-no-color", "tfplan"}
+2025-07-10T06:31:53.089+0530 [INFO]  Terraform version: 1.5.7
+2025-07-10T06:31:53.090+0530 [INFO]  Go runtime version: go1.23.1
+2025-07-10T06:31:53.090+0530 [INFO]  CLI args: []string{"terraform", "output", "deployment_summary"}
+2025-07-10T06:31:53.090+0530 [INFO]  CLI command args: []string{"output", "deployment_summary"}

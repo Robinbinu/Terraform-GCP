@@ -1,0 +1,24 @@
+2025-07-10 07:06:10,557 - INFO - Logging to: vm_management_20250710_070610.log
+2025-07-10 07:06:10,872 - INFO - SUCCESS: Google Cloud clients initialized
+2025-07-10 07:06:12,521 - INFO - Stopping instance test...
+2025-07-10 07:06:14,206 - INFO - Waiting for instance stop to complete...
+2025-07-10 07:06:15,778 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:19,258 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:22,638 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:26,119 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:29,442 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:32,877 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:36,201 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:39,563 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:42,935 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:46,283 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:49,700 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:53,079 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:56,405 - INFO - instance stop in progress... (0%)
+2025-07-10 07:06:58,749 - INFO - instance stop in progress... (0%)
+2025-07-10 07:07:01,141 - INFO - instance stop in progress... (0%)
+2025-07-10 07:07:04,538 - INFO - instance stop in progress... (0%)
+2025-07-10 07:07:06,973 - INFO - instance stop in progress... (0%)
+2025-07-10 07:07:10,302 - INFO - SUCCESS: instance stop completed successfully
+2025-07-10 07:07:10,302 - INFO - SUCCESS: Instance test stopped successfully!
+2025-07-10 07:07:10,302 - INFO - SUCCESS: Configuration saved to vm_config.json

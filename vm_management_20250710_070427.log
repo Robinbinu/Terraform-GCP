@@ -1,0 +1,12 @@
+2025-07-10 07:04:27,280 - INFO - Logging to: vm_management_20250710_070427.log
+2025-07-10 07:04:27,598 - INFO - SUCCESS: Google Cloud clients initialized
+2025-07-10 07:04:27,599 - INFO - === Creating VM Instance: test ===
+2025-07-10 07:04:27,599 - INFO - Project: intellicash-465015
+2025-07-10 07:04:27,599 - INFO - Zone: us-central1-a
+2025-07-10 07:04:27,599 - INFO - Machine Type: e2-micro
+2025-07-10 07:04:27,599 - INFO - OS: ubuntu
+2025-07-10 07:04:27,599 - INFO - Disk Size: 20 GB
+2025-07-10 07:04:27,599 - INFO - HTTP Server: False
+2025-07-10 07:04:27,599 - INFO - Preemptible: False
+2025-07-10 07:04:29,285 - INFO - Submitting instance creation request...
+2025-07-10 07:04:30,783 - ERROR - Failed to create instance: 404 POST https://compute.googleapis.com/compute/v1/projects/intellicash-465015/zones/us-central1-a/instances: The resource 'projects/ubuntu-os-cloud/global/images/family/ubuntu-minimal-2404-lts' was not found

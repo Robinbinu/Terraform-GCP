@@ -1,0 +1,54 @@
+# Example Terraform Variables File
+# Copy this to terraform.tfvars and customize your choices
+
+# Basic Configuration
+project_id = "your-gcp-project-id"
+region     = "us-central1"  # Options: us-central1, us-east1, us-west1, us-west2, europe-west1, europe-west2, asia-southeast1
+zone       = ""             # Leave empty to auto-select zone based on region
+
+# VM Configuration Choices
+vm_name      = "my-web-server"
+machine_type = "e2-micro"    # Options: f1-micro, e2-micro, e2-small, e2-medium, n1-standard-1, n1-standard-2, n2-standard-2
+os_choice    = "ubuntu"      # Options: ubuntu, debian, centos, rhel
+disk_size    = 20            # Size in GB (10-100)
+
+# Feature Choices
+enable_http_server = true    # Set to false if you don't want web server
+enable_monitoring  = false   # Set to true to enable Cloud Monitoring
+
+# Instance Lifecycle Management
+instance_state    = "RUNNING"    # Options: "RUNNING", "TERMINATED"
+auto_start        = true          # Automatically start if stopped
+auto_restart      = true          # Automatically restart if crashed
+preemptible       = false         # Use preemptible/spot instance (cheaper but can be stopped)
+
+# Example configurations for different scenarios:
+
+# Minimal setup (lowest cost with preemptible instance)
+# machine_type = "f1-micro"
+# disk_size = 10
+# enable_http_server = false
+# enable_monitoring = false
+# preemptible = true
+# instance_state = "RUNNING"
+
+# Web server setup (standard instance)
+# machine_type = "e2-small"
+# disk_size = 20
+# enable_http_server = true
+# enable_monitoring = true
+# preemptible = false
+# instance_state = "RUNNING"
+
+# Development environment (with auto-restart)
+# machine_type = "n1-standard-1"
+# disk_size = 30
+# enable_http_server = true
+# enable_monitoring = true
+# auto_restart = true
+# preemptible = false
+# instance_state = "RUNNING"
+
+# Stopped instance (for cost savings)
+# instance_state = "TERMINATED"
+# auto_start = false
