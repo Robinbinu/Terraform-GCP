@@ -1,7 +1,5 @@
 # Google Cloud VM Management Solution
 
-A comprehensive solution for managing Google Cloud Platform VM instances with both Terraform and Python approaches, featuring lifecycle management, cost optimization, and verbose logging.
-
 ## 📁 Repository Structure
 
 ```
