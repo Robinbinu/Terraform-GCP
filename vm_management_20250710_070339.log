@@ -1,5 +1,0 @@
-2025-07-10 07:03:39,599 - INFO - Logging to: vm_management_20250710_070339.log
-2025-07-10 07:03:40,234 - INFO - SUCCESS: Google Cloud clients initialized
-2025-07-10 07:04:10,056 - INFO - SUCCESS: Configuration saved to vm_config.json
-2025-07-10 07:04:10,057 - INFO - SUCCESS: Configuration saved!
-2025-07-10 07:04:11,795 - ERROR - Failed to get instance status: 404 GET https://compute.googleapis.com/compute/v1/projects/intellicash-465015/zones/us-central1-a/instances/test: The resource 'projects/intellicash-465015/zones/us-central1-a/instances/test' was not found
