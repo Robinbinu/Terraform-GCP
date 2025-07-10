@@ -195,10 +195,6 @@ export GOOGLE_APPLICATION_CREDENTIALS="path/to/service-account-key.json"
 3. Test both Terraform and Python approaches
 4. Ensure sensitive files are properly gitignored
 
-## 📜 License
-
-This project is open source and available under the MIT License.
-
 ---
 
 **Choose your preferred approach and start managing GCP VMs with ease!** 🚀
